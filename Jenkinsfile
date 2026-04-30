@@ -5,7 +5,7 @@ pipeline {
     stage('Checkout') { 
       steps { 
         // NOTE: You will need to replace 'your_github_username' with your actual username once you push this repository to GitHub
-        git branch: 'main', url: 'https://github.com/your_github_username/8.2CDevSecOps.git' 
+        git branch: 'main', url: 'https://github.com/mahayvarun2002-lang/8.2CDevSecOps.git' 
       } 
     } 
  
