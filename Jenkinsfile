@@ -18,6 +18,16 @@ pipeline {
     stage('Run Tests') { 
       steps { 
         bat 'npm test || exit /b 0' // Allows pipeline to continue despite test failures 
+      }
+      post {
+        always {
+          emailext (
+            subject: "Jenkins Build Status: ${currentBuild.currentResult} - Test Stage",
+            body: "The Run Tests stage has completed. Please find the attached build logs for details.",
+            to: 'varun@example.com', // Replace with your actual email
+            attachLog: true
+          )
+        }
       } 
     } 
  
@@ -31,7 +41,17 @@ pipeline {
     stage('NPM Audit (Security Scan)') { 
       steps { 
         bat 'npm audit || exit /b 0' // This will show known CVEs in the output 
-      } 
+      }
+      post {
+        always {
+          emailext (
+            subject: "Jenkins Build Status: ${currentBuild.currentResult} - Security Scan Stage",
+            body: "The Security Scan (npm audit) stage has completed. Please find the attached logs for the vulnerability report.",
+            to: 'varun@example.com', // Replace with your actual email
+            attachLog: true
+          )
+        }
+      }
     } 
  
   } 
