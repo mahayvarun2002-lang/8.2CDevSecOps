@@ -47,7 +47,7 @@ pipeline {
           emailext (
             subject: "Jenkins Build Status: ${currentBuild.currentResult} - Security Scan Stage",
             body: "The Security Scan (npm audit) stage has completed. Please find the attached logs for the vulnerability report.",
-            to: 'kumarvijay421964@gmail.com', // Replace with your actual email
+            to: 'kumarvijay421964@gmail.com', // My email id
             attachLog: true
           )
         }
