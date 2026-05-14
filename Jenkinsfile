@@ -14,6 +14,7 @@ pipeline {
         bat 'npm install' 
       } 
     } 
+    // jsdni
  
     stage('Run Tests') { 
       steps { 
